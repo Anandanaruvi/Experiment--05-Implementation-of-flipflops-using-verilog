@@ -150,15 +150,15 @@ endmodule
 ```
 ### JK FLIP-FLOP
 ```
-module jk(j,k,clk,q,qbar);
+module jkflipflop(j,k,clk,q,qbar);
 input j,k,clk;
-output reg q;
-output reg qbar;
+output q,qbar;
+reg q,qbar;
 always @(posedge clk)
-begin
-q=(j&(~q))|((~k)&q);
-qbar=((~j)&q)|(k &(~q));
-end 
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
 endmodule
 ```
 ### T FLIP-FLOP 
@@ -175,48 +175,61 @@ q=(T&(~q))|((~T)&q);
 qbar=(~q);
 
 end
-endmodule 
+endmodule
 ```
 ### D FLIP-FLOP
-
-module d(d,clk,q,qbar); input d,clk; output reg q; output reg qbar; initial q=0; initiak qbar=1; always @(posedge clk) begin q=d; qbar=~q; end endmodule
+```
+module d(d,clk,q,qbar);
+input d,clk;
+output reg q;
+output reg qbar;
+initial q=0;
+initiak qbar=1;
+always @(posedge clk)
+begin 
+q=d;
+qbar=~q;
+end 
+endmodule
+```
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
 ### SR FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/f3007f96-e1ae-40c0-b5bd-0d3daed92d18)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/004506e0-f3b3-45dc-95a9-5b51b87a3cc8)
+
 
 ### JK FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/615a94c9-40ce-4821-beb3-1693b8e91c1c)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/c6b42004-ddfb-41ee-95f1-98a9015a28eb)
 
 ### T FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/22473833-f7e8-497d-95e6-d62e8e7bdcac)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/d063ef2d-3497-43c8-86e7-317ab9b3c7e8)
 
 ### D FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/1fcc8f2e-a8e3-46f7-a3b8-8d4c41567a66)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/cd81389c-93e8-4d1c-bc38-3b68f4d37384)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
 ### SR FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/214c3e71-fe26-4ffb-9d32-56e8c97191cb)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/50398109-f542-459c-be46-4a98c102b33b)
 
 ### JK FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/9de29c45-21d6-4d2a-881c-53938271bf1c)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/951a4a12-95d7-40ea-a115-9b2edd2b4d44)
 
 ### T FLIP FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/1394a51f-de6b-44ea-b8ca-fad4a6aa728a)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/0c493882-c374-4d70-8f6f-b5a6f5cea173)
 
 ### D FLIP-FLOP
 
-![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/56e25f19-1598-41d6-8199-9170c5486972)
+![image](https://github.com/Anandanaruvi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120443233/d5aab0a4-547d-492e-8fbf-7a6766a9f93b)
 
-### RESULTS 
+### RESULT
 
 All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
